@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { AnimatedDot } from '../../components/backrgound_Dots/AnimatedDot';
 import { OnboardingText } from '../../components/OnboardingText/OnboardingText';
 import classes from './OnboardingPage.module.sass';
@@ -15,10 +15,22 @@ const DOTS_CONFIG = [
 
 export const OnboardingPage = () => {
   const [finished, setFinished] = useState(false);
+  const [dotsFinishedCount, setDotsFinishedCount] = useState(0);
+  const dotsFinished = useRef(false);
 
   const handleTextFinish = () => {
     console.log("Текст полностью исчез");
     setFinished(true);
+  };
+
+  const handleDotAnimationEnd = () => {
+    setDotsFinishedCount(prev => {
+      const newCount = prev + 1;
+      if (newCount === DOTS_CONFIG.length) {
+        dotsFinished.current = true;
+      }
+      return newCount;
+    });
   };
 
   return (
@@ -29,10 +41,12 @@ export const OnboardingPage = () => {
             key={`dot-${index}`}
             {...dotProps}
             toCenter={finished}
+            onAnimationEnd={handleDotAnimationEnd}
           />
         ))}
       </div>
       <OnboardingText onFinish={handleTextFinish} />
+      {dotsFinished.current? <Horizont/> : null}
     </div>
   );
 };
