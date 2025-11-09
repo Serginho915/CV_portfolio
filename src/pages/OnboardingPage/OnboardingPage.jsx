@@ -18,6 +18,7 @@ export const OnboardingPage = () => {
 
   const handleTextFinish = () => {
     console.log("Текст полностью исчез");
+    setFinished(true);
   };
 
   return (
