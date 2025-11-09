@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AnimatedDot } from '../../components/backrgound_Dots/AnimatedDot';
 import { OnboardingText } from '../../components/OnboardingText/OnboardingText';
 import classes from './OnboardingPage.module.sass';
@@ -14,14 +14,24 @@ const DOTS_CONFIG = [
 ];
 
 export const OnboardingPage = () => {
+  const [finished, setFinished] = useState(false);
+
+  const handleTextFinish = () => {
+    console.log("Текст полностью исчез");
+  };
+
   return (
     <div>
       <div className={classes.pageWrapper}>
         {DOTS_CONFIG.map((dotProps, index) => (
-          <AnimatedDot key={`dot-${index}`} {...dotProps} />
+          <AnimatedDot
+            key={`dot-${index}`}
+            {...dotProps}
+            toCenter={finished}
+          />
         ))}
       </div>
-      <OnboardingText />
+      <OnboardingText onFinish={handleTextFinish} />
     </div>
   );
 };

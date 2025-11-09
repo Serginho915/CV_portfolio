@@ -1,71 +1,86 @@
 import React, { useEffect, useState, useRef } from 'react'
 import classes from './OnboardingText.module.sass'
 
-export const OnboardingText = () => {
+export const OnboardingText = ({ onFinish }) => {
     const text = [
         'Greetings, Traveller',
         'Your path`s been long through the stars.',
         'Pause here - refuel your energy'
     ]
 
-    const [state, setState] = useState([])
-    const intervalRef = useRef(null)
-    const timeoutRef = useRef(null)
+    const [state, setState] = useState([]);
+    const finished = useRef(false);
 
 
     useEffect(() => {
-        intervalRef.current = setInterval(() => {
+        const interval = setInterval(() => {
             setState(prev => {
                 if (prev.length < text.length) {
-                    return [...prev, { id: Date.now(), text: text[prev.length], status: 'visible' }]
+                    return [...prev, {
+                        id: Date.now(),
+                        text: text[prev.length],
+                        status: 'visible'
+                    }];
                 } else {
-                    clearInterval(intervalRef.current)
-                    return prev
+                    clearInterval(interval);
+                    return prev;
                 }
-            })
-        }, 1000)
+            });
+        }, 1000);
 
-        return () => clearInterval(intervalRef.current)
-    }, [])
+        return () => clearInterval(interval);
+    }, []);
 
 
     useEffect(() => {
-        if (state.length === text.length && state.length > 0) {
-            timeoutRef.current = setTimeout(() => {
-                const removeInterval = setInterval(() => {
-                    setState(prev => {
-                        if (prev.length === 0) {
-                            clearInterval(removeInterval)
-                            return []
-                        }
-                        const newState = [...prev]
-                        newState[newState.length - 1].status = 'exiting'
+        if (state.length !== text.length || finished.current) return;
 
-                        setTimeout(() => {
-                            setState(current => current.filter(item => item.id !== newState[newState.length - 1].id))
-                        }, 500)
+        const timeout = setTimeout(() => {
+            const interval = setInterval(() => {
+                setState(prev => {
+                    if (prev.length === 0) {
+                        clearInterval(interval);
+                        finished.current = true;
+                        return [];
+                    }
 
-                        return newState
-                    })
-                }, 200)
-            }, 2000)
+                    const newState = [...prev];
+                    newState[newState.length - 1].status = "exiting";
 
-            return () => clearTimeout(timeoutRef.current)
+                    setTimeout(() => {
+                        setState(cur => cur.filter(i => i.id !== newState[newState.length - 1].id));
+                    }, 500);
+
+                    return newState;
+                });
+            }, 200);
+        }, 2000);
+
+        return () => clearTimeout(timeout);
+    }, [state]);
+
+    // === ВЫЗОВ onFinish ПОСЛЕ ОКОНЧАНИЯ ===
+    useEffect(() => {
+        if (finished.current) {
+            onFinish?.(true);
         }
-    }, [state, text.length])
+    }, [finished.current]);
 
     return (
         <div className={classes.container}>
             {state.map(item => (
-                <div>
+                <div key={item.id}>
                     <h3
-                        key={item.id}
-                        className={item.status === 'exiting' ? classes.textExiting : classes.textAnimated}
+                        className={
+                            item.status === "exiting"
+                                ? classes.textExiting
+                                : classes.textAnimated
+                        }
                     >
                         {item.text}
                     </h3>
                 </div>
             ))}
         </div>
-    )
-}
+    );
+};
