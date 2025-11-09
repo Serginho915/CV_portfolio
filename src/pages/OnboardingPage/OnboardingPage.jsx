@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { AnimatedDot } from '../../components/backrgound_Dots/AnimatedDot';
 import { OnboardingText } from '../../components/OnboardingText/OnboardingText';
+import { HorizontBG } from '../../components/HorizontalBG/HorizontBG';
 import classes from './OnboardingPage.module.sass';
 
 const DOTS_CONFIG = [
@@ -19,7 +20,6 @@ export const OnboardingPage = () => {
   const dotsFinished = useRef(false);
 
   const handleTextFinish = () => {
-    console.log("Текст полностью исчез");
     setFinished(true);
   };
 
@@ -34,19 +34,24 @@ export const OnboardingPage = () => {
   };
 
   return (
-    <div>
-      <div className={classes.pageWrapper}>
-        {DOTS_CONFIG.map((dotProps, index) => (
-          <AnimatedDot
-            key={`dot-${index}`}
-            {...dotProps}
-            toCenter={finished}
-            onAnimationEnd={handleDotAnimationEnd}
-          />
-        ))}
+    <>
+      <div>
+        <div className={classes.pageWrapper}>
+          {DOTS_CONFIG.map((dotProps, index) => (
+            <AnimatedDot
+              key={`dot-${index}`}
+              {...dotProps}
+              toCenter={finished}
+              onAnimationEnd={handleDotAnimationEnd}
+            />
+          ))}
+        </div>
+        <OnboardingText onFinish={handleTextFinish} />
       </div>
-      <OnboardingText onFinish={handleTextFinish} />
-      {dotsFinished.current? <Horizont/> : null}
-    </div>
+      <div className={classes.centerBarBlock}>
+        {dotsFinished.current ? <HorizontBG /> : null}
+      </div>
+
+    </>
   );
 };

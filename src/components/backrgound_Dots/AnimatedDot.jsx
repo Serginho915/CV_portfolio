@@ -29,7 +29,7 @@ export const AnimatedDot = ({ top, left, size, color, blur, animation, toCenter,
     height: `${size}px`,
     backgroundColor: color,
     filter: `blur(${blur}px)`,
-    transition: shouldMove ? 'transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none',
+    transition: shouldMove ? 'transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)' : 'none',
     transform: shouldMove ? `translate(${translateX}px, ${translateY}px) scale(0.5)` : 'translate(0, 0) scale(1)',
     opacity: shouldMove ? 0 : 1,
   };
