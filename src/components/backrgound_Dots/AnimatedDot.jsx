@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classes from './AnimatedDot.module.sass';
 
 export const AnimatedDot = ({ top, left, size, color, blur, animation, toCenter, onAnimationEnd }) => {
