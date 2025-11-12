@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { AnimatedDot } from '../../components/backrgound_Dots/AnimatedDot';
 import { OnboardingText } from '../../components/OnboardingText/OnboardingText';
 import { HorizontBG } from '../../components/HorizontalBG/HorizontBG';
+import { GreetingRobot } from '../../components/greetingRobot/GreetingRobot';
 import classes from './OnboardingPage.module.sass';
 
 const DOTS_CONFIG = [
@@ -51,6 +52,9 @@ export const OnboardingPage = () => {
       <div className={classes.centerBarBlock}>
         {dotsFinished.current ? <HorizontBG /> : null}
       </div>
+
+       {dotsFinished.current ? <GreetingRobot /> : null}
+      
 
     </>
   );
