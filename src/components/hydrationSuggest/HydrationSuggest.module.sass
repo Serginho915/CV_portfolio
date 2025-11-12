@@ -1,24 +1,27 @@
 .container
   width: 100%
-  display: flex
-  justify-content: center   // центрируем весь блок горизонтально
-  padding-top: 60px        // отступ сверху
+  padding-top: 60px
 
 .wrapper
-  display: inline-flex       // курсор + текст в одну линию
+  display: flex
   align-items: center
-  justify-content: flex-start  // текст растёт от курсора
+  justify-content: flex-start
+  margin-left: 550px
 
 .cursor
   font-weight: bold
   animation: blink 1s step-start infinite
   line-height: 1
+  color: white
+  flex-shrink: 0
 
 .text
   margin-left: 2px
   font-size: 1.2rem
   line-height: 1
-  white-space: pre
+  white-space: nowrap
+  color: white
+  text-align: left
 
 @keyframes blink
   50%
