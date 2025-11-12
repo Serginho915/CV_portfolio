@@ -59,7 +59,7 @@ export const OnboardingText = ({ onFinish }) => {
         return () => clearTimeout(timeout);
     }, [state]);
 
-    // === ВЫЗОВ onFinish ПОСЛЕ ОКОНЧАНИЯ ===
+    
     useEffect(() => {
         if (finished.current) {
             onFinish?.(true);

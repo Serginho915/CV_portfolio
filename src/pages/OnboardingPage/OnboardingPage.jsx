@@ -3,6 +3,7 @@ import { AnimatedDot } from '../../components/backrgound_Dots/AnimatedDot';
 import { OnboardingText } from '../../components/OnboardingText/OnboardingText';
 import { HorizontBG } from '../../components/HorizontalBG/HorizontBG';
 import { GreetingRobot } from '../../components/greetingRobot/GreetingRobot';
+import { HydrationSuggest } from '../../components/hydrationSuggest/HydrationSuggest';
 import classes from './OnboardingPage.module.sass';
 
 const DOTS_CONFIG = [
@@ -53,6 +54,7 @@ export const OnboardingPage = () => {
         {dotsFinished.current ? <HorizontBG /> : null}
       </div>
 
+        {dotsFinished.current ? <HydrationSuggest /> : null}
        {dotsFinished.current ? <GreetingRobot /> : null}
       
 
