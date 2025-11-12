@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { AnimatedDot } from '../../components/backrgound_Dots/AnimatedDot';
 import { OnboardingText } from '../../components/OnboardingText/OnboardingText';
 import { HorizontBG } from '../../components/HorizontalBG/HorizontBG';
@@ -19,6 +19,7 @@ const DOTS_CONFIG = [
 export const OnboardingPage = () => {
   const [finished, setFinished] = useState(false);
   const [dotsFinishedCount, setDotsFinishedCount] = useState(0);
+  const [hydrTextFinished, setHydrTextFinished] = useState(false);
   const dotsFinished = useRef(false);
 
   const handleTextFinish = () => {
@@ -33,6 +34,10 @@ export const OnboardingPage = () => {
       }
       return newCount;
     });
+  };
+
+  const handleHydrationSuggestEnd = () => {
+    setHydrTextFinished(true);
   };
 
   return (
@@ -50,14 +55,16 @@ export const OnboardingPage = () => {
         </div>
         <OnboardingText onFinish={handleTextFinish} />
       </div>
+
       <div className={classes.centerBarBlock}>
-        {dotsFinished.current ? <HorizontBG /> : null}
+        {dotsFinished.current && <HorizontBG />}
       </div>
 
-        {dotsFinished.current ? <HydrationSuggest /> : null}
-       {dotsFinished.current ? <GreetingRobot /> : null}
-      
+      {dotsFinished.current && (
+        <HydrationSuggest onFinish={handleHydrationSuggestEnd} />
+      )}
 
+      {hydrTextFinished && <GreetingRobot />}
     </>
   );
 };
