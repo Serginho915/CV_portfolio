@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from './AnimatedDot.module.sass';
 
 export const AnimatedDot = ({ top, left, size, color, blur, animation, toCenter, onAnimationEnd }) => {
-  const [shouldMove, setShouldMove] = React.useState(false);
+  const [shouldMove, setShouldMove] = useState(false);
   
-  React.useEffect(() => {
+  useEffect(() => {
     if (toCenter) {
-      // Небольшая задержка чтобы браузер успел применить начальные стили
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           setShouldMove(true);
