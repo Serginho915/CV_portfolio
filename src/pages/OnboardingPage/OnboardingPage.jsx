@@ -4,6 +4,7 @@ import { OnboardingText } from '../../components/OnboardingText/OnboardingText';
 import { HorizontBG } from '../../components/HorizontalBG/HorizontBG';
 import { GreetingRobot } from '../../components/greetingRobot/GreetingRobot';
 import { HydrationSuggest } from '../../components/hydrationSuggest/HydrationSuggest';
+import { HydrationCard } from '../../components/HydrationCard/HydrationCard';
 import classes from './OnboardingPage.module.sass';
 
 const DOTS_CONFIG = [
@@ -65,6 +66,7 @@ export const OnboardingPage = () => {
       )}
 
       {hydrTextFinished && <GreetingRobot />}
+      {hydrTextFinished && <HydrationCard />}
     </>
   );
 };
