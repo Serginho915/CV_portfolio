@@ -11,7 +11,14 @@ export const HydrationCard = () => {
             description: 'Synthetic coffee strain. Boosts clarity.',
             boost: [95, 100, 82]
         },
+        {
 
+            id: 2,
+            name: 'PINT',
+            icon: <Coffee />,
+            description: ' Non-fermented mind cooler. Zero memory loss.',
+            boost: [50, 90, 100]
+        }
     ]
 
 
@@ -23,7 +30,7 @@ export const HydrationCard = () => {
 
                     {/* Name */}
                     <text x="10" y="60" fill="white" fontSize="17" fontFamily="Iceland" letterSpacing="2">
-                        SYN-{d.name.toUpperCase()}_42
+                        SYN-{d.name.toUpperCase()}
                     </text>
 
                     
@@ -70,7 +77,7 @@ export const HydrationCard = () => {
                     <path d="M8 137C8 132.582 11.5817 129 16 129H313C317.418 129 321 132.582 321 137V157C321 161.418 317.418 165 313 165H16C11.5817 165 8 161.418 8 157V137Z" fill="#1A1A1A" />
 
                     {/* Description */}
-                    <text x="50" y="150" fill="white" fontSize="16" fontFamily="Rajdhani">
+                    <text x="30" y="150" fill="white" fontSize="16" fontFamily="Rajdhani">
                         {d.description}
                     </text>
 
