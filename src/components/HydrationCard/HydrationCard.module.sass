@@ -1,0 +1,101 @@
+.cardContainer
+  display: flex
+  gap: 20px
+  padding: 20px
+  justify-content: center
+  align-items: center
+  flex-wrap: wrap
+
+.card
+  position: relative
+  width: 329px
+  height: 279px
+
+.svgFrame
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  pointer-events: none
+  z-index: 0
+
+.content
+  position: relative
+  z-index: 1
+  padding: 15px
+  height: 100%
+  display: flex
+  flex-direction: column
+
+.header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  margin-bottom: 50px
+
+.title
+  font-family: 'Iceland', sans-serif
+  font-size: 17px
+  color: white
+  letter-spacing: 2px
+  margin: 0
+
+.iconWrapper
+  width: 60px
+  height: 60px
+  display: flex
+  align-items: center
+  justify-content: center
+
+.description
+  padding: 8px 0
+  justify-content: center
+  align-items: center
+  gap: 5px
+  align-self: stretch
+  border-radius: 8px
+  background: #1A1A1A
+  margin-bottom: 15px
+
+.descriptionText
+  font-family: 'Rajdhani', sans-serif
+  font-size: 14px
+  color: white
+  margin: 0
+  line-height: 1.4
+  text-align: center
+  padding: 0 10px
+
+.statsContainer
+  display: flex
+  flex-direction: column
+  gap: 10px
+
+.statItem
+  display: flex
+  justify-content: space-between
+  gap: 4px
+
+.statLabel
+  font-family: 'Rajdhani', sans-serif
+  font-size: 13px
+  font-weight: 600
+  color: #EBEBEB
+
+.statBar
+  width: 149px
+  height: 14px
+  background: #EBEBEB
+  border-radius: 20px
+  display: flex
+  align-items: center
+  justify-content: flex-end
+  padding-right: 8px
+  clip-path: polygon(15% 0%, 90% 0%, 100% 100%, 0% 100%)
+
+.statValue
+  font-family: 'Rajdhani', sans-serif
+  font-size: 11px
+  font-weight: bold
+  color: black
