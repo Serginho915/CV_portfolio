@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Coffee } from '../HydrationCups/Coffee'
 import { Pint } from '../HydrationCups/Pint'
 import classes from './HydrationCard.module.sass'
 import { Bytefizz } from '../HydrationCups/Bytefizz'
 
 export const HydrationCard = () => {
+    const [selectedCard, setSelectedCard] = useState(null);
+    const [loadingProgress, setLoadingProgress] = useState({});
+
     const drinks = [
         {
             id: 1,
@@ -31,10 +34,42 @@ export const HydrationCard = () => {
 
     const stats = ['Sensory Boost', 'Energy', 'Vibe']
 
+    const handleCardClick = (cardId) => {
+        if (selectedCard !== null) return;
+        
+        setSelectedCard(cardId);
+        
+        const targetBoosts = drinks.find(d => d.id === cardId).boost;
+        let progress = 0;
+        const duration = 1500; 
+        const stepTime = 20;
+        const steps = duration / stepTime;
+        const increments = targetBoosts.map(boost => boost / steps);
+        
+        const interval = setInterval(() => {
+            progress++;
+            setLoadingProgress(prev => {
+                const newProgress = {};
+                targetBoosts.forEach((boost, index) => {
+                    newProgress[index] = Math.min(increments[index] * progress, boost);
+                });
+                return newProgress;
+            });
+            
+            if (progress >= steps) {
+                clearInterval(interval);
+            }
+        }, stepTime);
+    };
+
     return (
         <div className={classes.cardContainer}>
             {drinks.map((d) => (
-                <div key={d.id} className={classes.card}>
+                <div 
+                    key={d.id} 
+                    className={`${classes.card} ${selectedCard !== null && selectedCard !== d.id ? classes.cardHidden : ''} ${selectedCard === d.id ? classes.cardSelected : ''}`}
+                    onClick={() => handleCardClick(d.id)}
+                >
                     
                     <svg className={classes.svgFrame} xmlns="http://www.w3.org/2000/svg" width="329" height="279" viewBox="0 0 329 279" fill="none">
                         <path d="M329 262.708V16.292C329 7.29416 321.858 0 313.048 0H192.585C190.033 0 187.518 0.625407 185.252 1.8237L172.891 8.35878C170.625 9.55708 168.11 10.1825 165.558 10.1825H85.7386C83.4803 10.1825 81.2476 9.6927 79.1884 8.74554L63.299 1.43694C61.2398 0.48978 59.0071 0 56.7487 0H15.9515C7.14174 0 0 7.29416 0 16.292V262.708C0 271.706 7.14171 279 15.9515 279H56.999C59.0957 279 61.1719 278.578 63.1087 277.758L87.292 267.516C89.2288 266.696 91.305 266.274 93.4018 266.274H243.856C246.412 266.274 248.932 266.901 251.201 268.104L268.314 277.17C270.584 278.372 273.103 279 275.659 279H313.048C321.858 279 329 271.706 329 262.708Z" fill="#DAE8FF" fillOpacity="0.3" />
@@ -109,10 +144,18 @@ export const HydrationCard = () => {
                                     <div className={classes.statBar}>
                                         <div
                                             className={classes.statFill}
-                                            style={{ width: `${d.boost[index]}%` }}
+                                            style={{ 
+                                                width: selectedCard === d.id 
+                                                    ? `${loadingProgress[index] || 0}%` 
+                                                    : `${d.boost[index]}%`,
+                                                backgroundColor: selectedCard === d.id ? '#01B0C7' : '#FFFFFF',
+                                                transition: selectedCard === d.id ? 'width 0.02s linear, background-color 0.3s ease' : 'width 0.25s ease, background-color 0.3s ease'
+                                            }}
                                         >
                                             <span className={classes.statValue}>
-                                                {d.boost[index]}%
+                                                {selectedCard === d.id 
+                                                    ? `${Math.round(loadingProgress[index] || 0)}%` 
+                                                    : `${d.boost[index]}%`}
                                             </span>
                                         </div>
                                     </div>
