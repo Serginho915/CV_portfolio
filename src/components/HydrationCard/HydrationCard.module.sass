@@ -9,6 +9,9 @@
   position: relative
   width: 329px
   height: 279px
+  cursor: pointer
+
+
 
 .svgFrame
   position: absolute
@@ -18,6 +21,7 @@
   height: 100%
   pointer-events: none
   z-index: 0
+
 
 .content
   position: relative
@@ -43,11 +47,10 @@
   margin: 0
 
 .iconWrapper
-    position: absolute;
-    height: 60px;
-    top: 10px;
-    right: 10px;
-
+  position: absolute
+  height: 60px
+  top: 10px
+  right: 10px
 
 .description
   padding: 8px 0
@@ -57,7 +60,7 @@
   align-self: stretch
   border-radius: 8px
   background: #1A1A1A
-  margin-bottom: 15px
+  margin-bottom: 10px
 
 .descriptionText
   font-family: 'Rajdhani', sans-serif
@@ -68,35 +71,54 @@
   text-align: center
   padding: 0 10px
 
+
 .statsContainer
   display: flex
   flex-direction: column
-  gap: 10px
+  gap: 14px
 
 .statItem
   display: flex
   justify-content: space-between
-  gap: 4px
+  align-items: center
 
 .statLabel
   font-family: 'Rajdhani', sans-serif
-  font-size: 13px
-  font-weight: 600
+  font-size: 15px
+  font-weight: 700
   color: #EBEBEB
 
 .statBar
-  width: 149px
-  height: 14px
-  background: #EBEBEB
-  border-radius: 20px
+  position: relative
+  width: 180px
+  height: 15px
+  border-radius: 6px
+  overflow: hidden
+  clip-path: polygon(
+    14px 0,
+    calc(100% - 14px) 0,
+    100% 100%,
+    0 100%
+  )
+
+.statFill
+  height: 100%
+  background: #FFFFFF
   display: flex
+  justify-content: center
   align-items: center
-  justify-content: flex-end
-  padding-right: 8px
-  clip-path: polygon(15% 0%, 90% 0%, 100% 100%, 0% 100%)
+  transition: width .25s ease
+  clip-path: polygon(
+    14px 0,
+    calc(100% - 14px) 0,
+    100% 100%,
+    0 100%
+  )
+
 
 .statValue
   font-family: 'Rajdhani', sans-serif
-  font-size: 11px
-  font-weight: bold
-  color: black
+  font-size: 13px
+  font-weight: 700
+  color: #000
+  pointer-events: none
