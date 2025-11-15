@@ -65,8 +65,16 @@ export const OnboardingPage = () => {
         <HydrationSuggest onFinish={handleHydrationSuggestEnd} />
       )}
 
-      {hydrTextFinished && <GreetingRobot />}
-      {hydrTextFinished && <HydrationCard />}
+      {/* {hydrTextFinished && <GreetingRobot />}
+      {hydrTextFinished && <HydrationCard />} */}
+
+      {hydrTextFinished && (
+        <>
+          <GreetingRobot />
+          <HydrationCard />
+        </>
+      )}
+
     </>
   );
 };
