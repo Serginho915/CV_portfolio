@@ -65,9 +65,9 @@ export const HydrationCard = () => {
     };
 
     return (
-        <div className={classes.cardContainer}>
+        <ul className={classes.cardContainer}>
             {drinks.map((d) => (
-                <div 
+                <li 
                     key={d.id} 
                     className={`${classes.card} ${selectedCard !== null && selectedCard !== d.id ? classes.cardHidden : ''} ${selectedCard === d.id ? classes.cardSelected : ''}`}
                     onClick={() => handleCardClick(d.id)}
@@ -167,8 +167,8 @@ export const HydrationCard = () => {
                         </div>
 
                     </div>
-                </div>
+                </li>
             ))}
-        </div>
+        </ul>
     )
 }
