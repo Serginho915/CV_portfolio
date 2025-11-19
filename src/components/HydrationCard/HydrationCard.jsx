@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Coffee } from '../HydrationCups/Coffee'
 import { Pint } from '../HydrationCups/Pint'
 import classes from './HydrationCard.module.sass'
@@ -7,6 +7,7 @@ import { Bytefizz } from '../HydrationCups/Bytefizz'
 export const HydrationCard = () => {
     const [selectedCard, setSelectedCard] = useState(null);
     const [loadingProgress, setLoadingProgress] = useState({});
+    const isChosenCard = useRef(false);
 
     const drinks = [
         {
@@ -60,6 +61,7 @@ export const HydrationCard = () => {
                 clearInterval(interval);
             }
         }, stepTime);
+        isChosenCard.current = true;
     };
 
     return (
