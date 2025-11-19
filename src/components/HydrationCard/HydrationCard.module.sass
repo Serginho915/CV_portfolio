@@ -12,6 +12,11 @@
   cursor: pointer
   transition: all 0.3s ease
 
+  &.cardHidden
+    opacity: 0
+    transform: scale(0.9)
+    pointer-events: none
+
   &::before
     content: ''
     position: absolute
