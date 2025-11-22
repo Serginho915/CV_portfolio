@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { OnboardingPage } from './pages/OnboardingPage/OnboardingPage';
 
 export default function App() {
+
+  const [IsOnboardFinished,SetIsOnboardFinished] = useState(false);
+  const handleOnboardingFinish =(value) =>{
+    SetIsOnboardFinished(value);
+  }
+
+
+
   return (<>
-    <OnboardingPage />
+    <OnboardingPage onFinish = {handleOnboardingFinish}/>
+    {IsOnboardFinished? <p>Success</p> : null}
   </>)
 }

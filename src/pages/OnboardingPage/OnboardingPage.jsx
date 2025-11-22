@@ -17,7 +17,7 @@ const DOTS_CONFIG = [
   { top: 630, left: 896, size: 8, color: '#bbadadff', blur: 3, animation: 'neutralDot' }
 ];
 
-export const OnboardingPage = () => {
+export const OnboardingPage = ({ onFinish }) => {
   const [finished, setFinished] = useState(false);
   const [dotsFinishedCount, setDotsFinishedCount] = useState(0);
   const [hydrTextFinished, setHydrTextFinished] = useState(false);
@@ -39,6 +39,7 @@ export const OnboardingPage = () => {
 
   const handleHydrationSuggestEnd = () => {
     setHydrTextFinished(true);
+    onFinish(true);
   };
 
   return (
@@ -65,16 +66,12 @@ export const OnboardingPage = () => {
         <HydrationSuggest onFinish={handleHydrationSuggestEnd} />
       )}
 
-      {/* {hydrTextFinished && <GreetingRobot />}
-      {hydrTextFinished && <HydrationCard />} */}
-
       {hydrTextFinished && (
         <>
           <GreetingRobot />
-          <HydrationCard />
+          <HydrationCard onFinish = {handleHydrationSuggestEnd}/>
         </>
       )}
-
     </>
   );
 };
