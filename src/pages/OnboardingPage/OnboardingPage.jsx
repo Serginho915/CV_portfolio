@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { AnimatedDot } from '../../components/backrgound_Dots/AnimatedDot';
 import { OnboardingText } from '../../components/OnboardingText/OnboardingText';
 import { HorizontBG } from '../../components/HorizontalBG/HorizontBG';
@@ -21,6 +21,7 @@ export const OnboardingPage = ({ onFinish }) => {
   const [finished, setFinished] = useState(false);
   const [dotsFinishedCount, setDotsFinishedCount] = useState(0);
   const [hydrTextFinished, setHydrTextFinished] = useState(false);
+  const [cardSelected, setCardSelected] = useState(false);
   const dotsFinished = useRef(false);
 
   const handleTextFinish = () => {
@@ -39,7 +40,16 @@ export const OnboardingPage = ({ onFinish }) => {
 
   const handleHydrationSuggestEnd = () => {
     setHydrTextFinished(true);
-    onFinish(true);
+  };
+
+  // Когда выбрана карточка
+  const handleCardSelect = () => {
+    setCardSelected(true);
+  };
+
+  // Когда "Complete" допечатан и прошло 2 секунды
+  const handleCompleteFinish = () => {
+    if (onFinish) onFinish(true);
   };
 
   return (
@@ -63,13 +73,17 @@ export const OnboardingPage = ({ onFinish }) => {
       </div>
 
       {dotsFinished.current && (
-        <HydrationSuggest onFinish={handleHydrationSuggestEnd} />
+        <HydrationSuggest 
+          onFinish={handleHydrationSuggestEnd}
+          showComplete={cardSelected}
+          onCompleteFinish={handleCompleteFinish}
+        />
       )}
 
       {hydrTextFinished && (
         <>
           <GreetingRobot />
-          <HydrationCard onFinish = {handleHydrationSuggestEnd}/>
+          <HydrationCard onCardSelect={handleCardSelect} />
         </>
       )}
     </>

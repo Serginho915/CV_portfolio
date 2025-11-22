@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { OnboardingPage } from './pages/OnboardingPage/OnboardingPage';
+import { HeroSection } from './pages/HeroSection/HeroSection';
 
 export default function App() {
 
@@ -12,6 +13,6 @@ export default function App() {
 
   return (<>
     <OnboardingPage onFinish = {handleOnboardingFinish}/>
-    {IsOnboardFinished? <p>Success</p> : null}
+    {IsOnboardFinished? <HeroSection /> : null}
   </>)
 }

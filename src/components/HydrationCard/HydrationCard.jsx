@@ -1,13 +1,12 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { Coffee } from '../HydrationCups/Coffee'
 import { Pint } from '../HydrationCups/Pint'
 import classes from './HydrationCard.module.sass'
 import { Bytefizz } from '../HydrationCups/Bytefizz'
 
-export const HydrationCard = ({onFinish}) => {
+export const HydrationCard = ({ onCardSelect }) => {
     const [selectedCard, setSelectedCard] = useState(null);
     const [loadingProgress, setLoadingProgress] = useState({});
-
 
     const drinks = [
         {
@@ -40,27 +39,33 @@ export const HydrationCard = ({onFinish}) => {
         
         setSelectedCard(cardId);
         
-        const targetBoosts = drinks.find(d => d.id === cardId).boost;
-        let progress = 0;
-        const duration = 1500; 
-        const stepTime = 20;
-        const steps = duration / stepTime;
-        const increments = targetBoosts.map(boost => boost / steps);
+        // Сообщаем родителю что карточка выбрана
+        if (onCardSelect) onCardSelect(cardId);
         
-        const interval = setInterval(() => {
-            progress++;
-            setLoadingProgress(prev => {
-                const newProgress = {};
-                targetBoosts.forEach((boost, index) => {
-                    newProgress[index] = Math.min(increments[index] * progress, boost);
-                });
-                return newProgress;
-            });
+        // Ждём пока другие карточки исчезнут, потом запускаем анимацию
+        setTimeout(() => {
+            const targetBoosts = drinks.find(d => d.id === cardId).boost;
+            let progress = 0;
+            const duration = 1500; 
+            const stepTime = 20;
+            const steps = duration / stepTime;
+            const increments = targetBoosts.map(boost => boost / steps);
             
-            if (progress >= steps) {
-                clearInterval(interval);
-            }
-        }, stepTime);
+            const interval = setInterval(() => {
+                progress++;
+                setLoadingProgress(prev => {
+                    const newProgress = {};
+                    targetBoosts.forEach((boost, index) => {
+                        newProgress[index] = Math.min(increments[index] * progress, boost);
+                    });
+                    return newProgress;
+                });
+                
+                if (progress >= steps) {
+                    clearInterval(interval);
+                }
+            }, stepTime);
+        }, 600);
     };
 
     return (
@@ -75,7 +80,6 @@ export const HydrationCard = ({onFinish}) => {
                     <svg className={classes.svgFrame} xmlns="http://www.w3.org/2000/svg" width="329" height="279" viewBox="0 0 329 279" fill="none">
                         <path d="M329 262.708V16.292C329 7.29416 321.858 0 313.048 0H192.585C190.033 0 187.518 0.625407 185.252 1.8237L172.891 8.35878C170.625 9.55708 168.11 10.1825 165.558 10.1825H85.7386C83.4803 10.1825 81.2476 9.6927 79.1884 8.74554L63.299 1.43694C61.2398 0.48978 59.0071 0 56.7487 0H15.9515C7.14174 0 0 7.29416 0 16.292V262.708C0 271.706 7.14171 279 15.9515 279H56.999C59.0957 279 61.1719 278.578 63.1087 277.758L87.292 267.516C89.2288 266.696 91.305 266.274 93.4018 266.274H243.856C246.412 266.274 248.932 266.901 251.201 268.104L268.314 277.17C270.584 278.372 273.103 279 275.659 279H313.048C321.858 279 329 271.706 329 262.708Z" fill="#DAE8FF" fillOpacity="0.3" />
 
-                        {/* barcode*/}
                         <g transform="translate(15, 80)">
                             <svg xmlns="http://www.w3.org/2000/svg" width="126" height="33" viewBox="0 0 126 33" fill="none">
                                 <path d="M124.046 32.1348H125.154C125.621 32.1348 126 31.7562 126 31.2891V0.846153C126 0.37912 125.621 0.000514984 125.154 0.000514984H124.046C123.579 0.000514984 123.2 0.379122 123.2 0.846155V31.2891C123.2 31.7562 123.579 32.1348 124.046 32.1348Z" fill="#292A33" />
@@ -111,37 +115,29 @@ export const HydrationCard = ({onFinish}) => {
                             </svg>
                         </g>
 
-                        {/* black pannel */}
                         <path d="M171 56.3236V72.3512C171 73.6588 171.639 74.8839 172.712 75.6319L225.255 112.281C225.926 112.749 226.725 113 227.543 113H317C319.209 113 321 111.209 321 109V12C321 9.79086 319.209 8 317 8H227.743C226.802 8 225.891 8.33206 225.17 8.93773L172.427 53.2613C171.522 54.0213 171 55.1423 171 56.3236Z" fill="#1A1A1A" />
                     </svg>
-                    {/* content SVG */}
+
                     <div className={classes.content}>
-                        {/* Header */}
                         <div className={classes.header}>
                             <h3 className={classes.title}>
                                 SYN-{d.name.toUpperCase()}
                             </h3>
-
-                            {/* Icon */}
                             <div className={classes.iconWrapper}>
                                 {d.icon}
                             </div>
                         </div>
 
-                        {/* Desc*/}
                         <div className={classes.description}>
                             <p className={classes.descriptionText}>
                                 {d.description}
                             </p>
                         </div>
 
-                        {/* Stat */}
                         <div className={classes.statsContainer}>
                             {stats.map((stat, index) => (
                                 <div key={index} className={classes.statItem}>
-
                                     <div className={classes.statLabel}>{stat}</div>
-
                                     <div className={classes.statBar}>
                                         <div
                                             className={classes.statFill}
@@ -160,11 +156,9 @@ export const HydrationCard = ({onFinish}) => {
                                             </span>
                                         </div>
                                     </div>
-
                                 </div>
                             ))}
                         </div>
-
                     </div>
                 </li>
             ))}
