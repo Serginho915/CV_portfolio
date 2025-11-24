@@ -1,53 +1,35 @@
-import React, { useState, createContext, useContext } from 'react';
+import React from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import { OnboardingPage } from './pages/OnboardingPage/OnboardingPage';
 import { HeroSection } from './pages/HeroSection/HeroSection';
 
-// Контекст для навигации
-const NavigationContext = createContext();
 
+function PageWrapper({ Component, next }) {
+  const navigate = useNavigate();
 
-export const useNavigation = () => useContext(NavigationContext);
+  const goToNext = () => {
+    if (next) {
+      navigate(next);
+    }
+  };
 
-// Конфигурация страниц
-const PAGES = {
-  onboarding: { component: OnboardingPage, next: 'hero' },
-  hero: { component: HeroSection, next: 'about' },
-
-};
+  return <Component onFinish={goToNext} />;
+}
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('onboarding');
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
-  // Переход на следующую страницу
-  const goToNext = () => {
-    const nextPage = PAGES[currentPage]?.next;
-    if (nextPage) {
-      goTo(nextPage);
-    }
-  };
-
-  // Переход на конкретную страницу
-  const goTo = (pageId) => {
-    if (PAGES[pageId] && pageId !== currentPage) {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentPage(pageId);
-        setIsTransitioning(false);
-      }, 500);
-    }
-  };
-
-  const CurrentPage = PAGES[currentPage]?.component;
-
   return (
-    <NavigationContext.Provider value={{ currentPage, goTo, goToNext }}>
-      <div style={{
-        opacity: isTransitioning ? 0 : 1,
-        transition: 'opacity 0.5s ease'
-      }}>
-        {CurrentPage && <CurrentPage onFinish={goToNext} />}
-      </div>
-    </NavigationContext.Provider>
+    <BrowserRouter>
+      <Routes>
+        <Route 
+          path="/" 
+          element={<PageWrapper Component={OnboardingPage} next="/hero" />} 
+        />
+
+        <Route 
+          path="/hero" 
+          element={<PageWrapper Component={HeroSection} next="/about" />} 
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
