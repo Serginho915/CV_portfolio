@@ -1,7 +1,10 @@
 import React from 'react'
+import classes from './HeroSection.module.sass'
 
 export const HeroSection = () => {
   return (
-    <div>HeroSection</div>
+    <div className={classes.heroContainer}>
+
+    </div>
   )
 }
