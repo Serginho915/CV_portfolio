@@ -2,22 +2,28 @@ import React, { useEffect, useState } from 'react'
 import classes from './HeroSection.module.sass'
 
 export const HeroSection = () => {
-const [isOpenedInfo,setIsOpenedInfo] = useState(false)
+  const [isOpenedInfo, setIsOpenedInfo] = useState(false)
 
-useEffect(() =>{
-  if(isOpenedInfo) return;
+  useEffect(() => {
+    if (isOpenedInfo) return;
+    const timeOut = setTimeout(() => {
+      setIsOpenedInfo(true);
+    }, 1000)
 
-
-},[])
+    
+  }, [])
 
   return (
-    <div className={classes.heroContainer}>
+    <>
       <div className={classes.heroTitle}>Front-End Developer</div>
-      <div className={classes.heroInfo}>
-        <div className={classes.leftInfoCard}></div>
-        {isOpenedInfo? <div className={classes.sergeImage}></div> : null}
-        <div className={classes.rightInfoCard}></div>
+      <div className={classes.heroContainer}>
+        <div className={classes.heroInfo}>
+          <div className={`${classes.leftInfoCard} ${isOpenedInfo ? classes.slideLeft : ''}`}></div>
+          <img className={`${classes.sergeImage} ${isOpenedInfo ? classes.fadeIn : ''}`} src='../../assets/images/SergePhoto.jpg' alt='Serhii Kozhyn' />
+          <div className={`${classes.rightInfoCard} ${isOpenedInfo ? classes.slideRight : ''}`}></div>
+        </div>
       </div>
-    </div>
+    </>
+
   )
 }
