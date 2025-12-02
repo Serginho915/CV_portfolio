@@ -9,7 +9,7 @@ export const HydrationSuggest = ({ onFinish, showComplete, onCompleteFinish }) =
   const [showCompleteText, setShowCompleteText] = useState(false);
   const [completeVisible, setCompleteVisible] = useState("");
 
-  // Печатаем первый текст
+
   useEffect(() => {
     if (showComplete) return;
     
@@ -26,12 +26,12 @@ export const HydrationSuggest = ({ onFinish, showComplete, onCompleteFinish }) =
     return () => clearInterval(interval);
   }, []);
 
-  // Когда showComplete = true, начинаем исчезновение
+  
   useEffect(() => {
     if (showComplete && !isExiting) {
       setIsExiting(true);
       
-      // После исчезновения показываем Complete
+
       setTimeout(() => {
         setVisibleText("");
         setShowCompleteText(true);
@@ -39,7 +39,7 @@ export const HydrationSuggest = ({ onFinish, showComplete, onCompleteFinish }) =
     }
   }, [showComplete]);
 
-  // Печатаем "Complete."
+
   useEffect(() => {
     if (!showCompleteText) return;
     
@@ -49,7 +49,6 @@ export const HydrationSuggest = ({ onFinish, showComplete, onCompleteFinish }) =
       i++;
       if (i >= completeText.length) {
         clearInterval(interval);
-        // Через 2 секунды вызываем onCompleteFinish
         setTimeout(() => {
           if (onCompleteFinish) onCompleteFinish();
         }, 2000);
