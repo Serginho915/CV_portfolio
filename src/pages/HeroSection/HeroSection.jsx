@@ -12,6 +12,7 @@ useEffect(() =>{
 
   return (
     <div className={classes.heroContainer}>
+      <div className={classes.heroTitle}>Front-End Developer</div>
       <div className={classes.heroInfo}>
         <div className={classes.leftInfoCard}></div>
         {isOpenedInfo? <div className={classes.sergeImage}></div> : null}
