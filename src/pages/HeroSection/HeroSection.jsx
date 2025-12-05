@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import sergePhoto from '../../assets/images/sergePhoto.jpg'
 import classes from './HeroSection.module.sass'
 
 export const HeroSection = () => {
@@ -10,7 +11,7 @@ export const HeroSection = () => {
       setIsOpenedInfo(true);
     }, 1000)
 
-    
+
   }, [])
 
   return (
@@ -19,7 +20,7 @@ export const HeroSection = () => {
       <div className={classes.heroContainer}>
         <div className={classes.heroInfo}>
           <div className={`${classes.leftInfoCard} ${isOpenedInfo ? classes.slideLeft : ''}`}></div>
-          <img className={`${classes.sergeImage} ${isOpenedInfo ? classes.fadeIn : ''}`} src='../../assets/images/SergePhoto.jpg' alt='Serhii Kozhyn' />
+          <img className={`${classes.sergeImage} ${isOpenedInfo ? classes.fadeIn : ''}`} src={sergePhoto} alt='Serhii Kozhyn' />
           <div className={`${classes.rightInfoCard} ${isOpenedInfo ? classes.slideRight : ''}`}></div>
         </div>
       </div>
