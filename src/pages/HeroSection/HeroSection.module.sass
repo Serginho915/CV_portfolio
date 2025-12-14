@@ -5,42 +5,232 @@
     background-size: cover
     background-position: center
     background-repeat: no-repeat
-    pointer-events: none
-    z-index: 0
     display: flex
     align-items: center
     justify-content: center
 
+.heroTitle
+    position: absolute
+    top: 100px
+    color: #FFF
+    font-family: 'Iceland', sans-serif
+    font-size: 48px
+    letter-spacing: 3px
+    text-align: center
+
 .heroInfo
-    width: 1068px
-    height: 429px
+    width: 100%
+    max-width: 1200px
     display: flex
-    justify-content: space-between
+    justify-content: center
+    align-items: center
+    gap: 20px
 
 .leftInfoCard
     width: 416px
-    height: 429px
-    border: 1px solid rgba(218, 232, 255, 0.3)
+    height: 450px
+    background: rgba(42, 42, 42, 0.8)
+    border: 2px solid rgba(95, 141, 255, 0.4)
+    clip-path: polygon(20px 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%, 0% 20px)
+    padding: 30px
     transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    display: flex
+    flex-direction: column
+    gap: 20px
+    
     &.slideLeft
         transform: translateX(-100px)
 
 .rightInfoCard
-    width: 350px
-    height: 100%
-    border: 1px solid rgba(218, 232, 255, 0.3)
+    width: 416px
+    height: 450px
+    background: rgba(42, 42, 42, 0.8)
+    border: 2px solid rgba(95, 141, 255, 0.4)
+    clip-path: polygon(20px 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%, 0% 20px)
+    padding: 30px
     transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    right: 0
+    display: flex
+    flex-direction: column
+    gap: 15px
 
     &.slideRight
         transform: translateX(100px)
 
+
+.serviceRow
+    display: flex
+    gap: 15px
+    padding: 10px 0
+    border-bottom: 1px solid rgba(95, 141, 255, 0.2)
+
+.serviceLabel
+    font-family: 'Rajdhani', sans-serif
+    font-size: 18px
+    font-weight: 400
+    color: #EBEBEB
+    min-width: 150px
+
+.serviceValue
+    font-family: 'Rajdhani', sans-serif
+    font-size: 18px
+    font-weight: 400
+    color: #A8C7FF
+    text-transform: uppercase
+    letter-spacing: 1px
+
+
+.directiveSection
+    margin-top: 20px
+    display: flex
+    flex-direction: column
+    gap: 15px
+
+.directiveHeader
+    display: flex
+    align-items: center
+    gap: 10px
+    margin-bottom: 10px
+    
+    h3
+        font-family: 'Rajdhani', sans-serif
+        font-size: 20px
+        font-weight: 400
+        color: #EBEBEB
+        margin: 0
+
+.directiveIcon
+    width: 20px
+    height: 20px
+    color: #A8C7FF
+
+.directiveList
+    display: flex
+    flex-direction: column
+    gap: 12px
+    padding-left: 30px
+    position: relative
+
+    &::before
+        content: ''
+        position: absolute
+        left: 0
+        top: 0
+        width: 2px
+        height: 100%
+        background: linear-gradient(to bottom, rgba(95, 141, 255, 0.6), rgba(95, 141, 255, 0.2))
+
+.directiveItem
+    position: relative
+    
+    &::before
+        content: ''
+        position: absolute
+        left: -30px
+        top: 50%
+        transform: translateY(-50%)
+        width: 8px
+        height: 8px
+        background: #5F8DFF
+        border-radius: 50%
+        box-shadow: 0 0 8px rgba(95, 141, 255, 0.6)
+
+.directiveBar
+    background: linear-gradient(90deg, rgba(168, 199, 255, 0.4) 0%, rgba(95, 141, 255, 0.2) 100%)
+    padding: 10px 20px
+    clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%)
+    font-family: 'Rajdhani', sans-serif
+    font-size: 16px
+    font-weight: 400
+    color: #EBEBEB
+    text-align: center
+    transition: all 0.3s ease
+
+    &:hover
+        background: linear-gradient(90deg, rgba(168, 199, 255, 0.6) 0%, rgba(95, 141, 255, 0.3) 100%)
+        transform: translateX(5px)
+
+
+.cardHeader
+    background: linear-gradient(90deg, rgba(168, 199, 255, 0.3) 0%, rgba(95, 141, 255, 0.2) 100%)
+    padding: 12px 20px
+    clip-path: polygon(15px 0%, 100% 0%, calc(100% - 15px) 100%, 0% 100%)
+    
+    h3
+        font-family: 'Iceland', sans-serif
+        font-size: 22px
+        letter-spacing: 2px
+        color: #A8C7FF
+        margin: 0
+
+
+.cardContent
+    display: flex
+    flex-direction: column
+    gap: 15px
+
+.infoRow
+    display: flex
+    align-items: center
+    gap: 15px
+    
+.infoIcon
+    width: 24px
+    height: 24px
+    color: #A8C7FF
+
+.infoText
+    font-family: 'Rajdhani', sans-serif
+    font-size: 18px
+    color: #EBEBEB
+    margin: 0
+
+
+.knowledgeItem
+    display: flex
+    align-items: center
+    gap: 15px
+    padding: 10px 0
+    border-bottom: 1px solid rgba(95, 141, 255, 0.2)
+    
+    &:last-child
+        border-bottom: none
+
+.knowledgeLine
+    flex: 1
+    height: 2px
+    background: linear-gradient(90deg, rgba(95, 141, 255, 0.6) 0%, rgba(95, 141, 255, 0) 100%)
+    position: relative
+    
+    &::after
+        content: ''
+        position: absolute
+        right: 0
+        top: 50%
+        transform: translateY(-50%)
+        width: 8px
+        height: 8px
+        background: #5F8DFF
+        border-radius: 50%
+
+.knowledgeText
+    font-family: 'Rajdhani', sans-serif
+    font-size: 18px
+    color: #EBEBEB
+    margin: 0
+    min-width: 200px
+    text-align: right
+
 .sergeImage
     width: 150px
-    height: 231 px
-    border-radius: 75px;
+    height: 231px
+    opacity: 0
     transform: scale(0.9)
-    transition: transform 0.6s ease
+    transition: opacity 0.6s ease, transform 0.6s ease
+    object-fit: cover
+    object-position: center
+    flex-shrink: 0
+    border: 2px solid rgba(1, 176, 199, 0.6)
 
     &.fadeIn
+        opacity: 1
         transform: scale(1)
