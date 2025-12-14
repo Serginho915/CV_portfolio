@@ -17,7 +17,6 @@ export const HeroSection = () => {
       <div className={classes.heroTitle}>Front-End Developer</div>
       <div className={classes.heroContainer}>
         <div className={classes.heroInfo}>
-          {/* Left Card - Identity Info + Knowledge Core */}
           <div className={`${classes.leftInfoCard} ${isOpenedInfo ? classes.slideLeft : ''}`}>
             <div className={classes.cardHeader}>
               <h3>Identity Info:</h3>
