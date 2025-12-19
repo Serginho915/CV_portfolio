@@ -29,14 +29,15 @@
 .leftInfoCard
     width: 430px
     height: 529px
-    background: rgba(42, 42, 42, 0.8)
-    border: 2px solid rgba(95, 141, 255, 0.4)
-    clip-path: polygon(20px 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%, 0% 20px)
-    padding: 30px
+    align-items: flex-end;
+    // background: rgba(42, 42, 42, 0.8)
+    // border: 2px solid rgba(95, 141, 255, 0.4)
+    //clip-path: polygon(20px 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%, 0% 20px)
+    //padding: 30px
     transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     display: flex
     flex-direction: column
-    gap: 20px
+    gap: 95px
     
     &.slideLeft
         transform: translateX(-100px)
@@ -44,14 +45,14 @@
 .rightInfoCard
     width: 430px
     height: 529px
-    background: rgba(42, 42, 42, 0.8)
-    border: 2px solid rgba(95, 141, 255, 0.4)
-    clip-path: polygon(20px 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%, 0% 20px)
-    padding: 30px
+    // background: rgba(42, 42, 42, 0.8)
+    // border: 2px solid rgba(95, 141, 255, 0.4)
+    // clip-path: polygon(20px 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%, 0% 20px)
+    // padding: 30px
     transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
     display: flex
     flex-direction: column
-    gap: 15px
+    gap: 130px
 
     &.slideRight
         transform: translateX(100px)
@@ -73,14 +74,14 @@
     list-style: none
 
 .serviceLabel
-    font-family: 'Rajdhani', sans-serif
+    font-family: 'Iceland', sans-serif
     font-size: 18px
     font-weight: 400
     color: #EBEBEB
     min-width: 150px
 
 .serviceValue
-    font-family: 'Rajdhani', sans-serif
+    font-family: 'Iceland', sans-serif
     font-size: 18px
     font-weight: 400
     color: #A8C7FF
@@ -101,16 +102,16 @@
     margin-bottom: 10px
     
     h3
-        font-family: 'Rajdhani', sans-serif
+        font-family: 'Iceland', sans-serif
         font-size: 20px
         font-weight: 400
         color: #EBEBEB
         margin: 0
 
-.directiveIcon
-    width: 20px
-    height: 20px
-    color: #A8C7FF
+// .directiveIcon
+//     width: 20px
+//     height: 20px
+//     color: #A8C7FF
 
 .directiveList
     display: flex
@@ -126,45 +127,75 @@
     list-style: none
 
 .directiveBar
-    background: linear-gradient(90deg, rgba(168, 199, 255, 0.4) 0%, rgba(95, 141, 255, 0.2) 100%)
+    background: linear-gradient(90deg, #A8C7FF 0%, #A8C7FF 100%)
     padding: 10px 20px
     clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%)
     font-family: 'Rajdhani', sans-serif
     font-size: 16px
     font-weight: 400
-    color: #EBEBEB
+    color: #000
     text-align: center
     transition: all 0.3s ease
 
     &:hover
-        background: linear-gradient(90deg, rgba(168, 199, 255, 0.6) 0%, rgba(95, 141, 255, 0.3) 100%)
+        background: linear-gradient(90deg, #85aaee 0%, #6f97e1 100%)
         transform: translateX(5px)
-
-// Заголовки в карточках
+ 
 .cardHeader
-    background: linear-gradient(90deg, rgba(168, 199, 255, 0.3) 0%, rgba(95, 141, 255, 0.2) 100%)
+    background:  #A8C7FF
     padding: 12px 20px
-    clip-path: polygon(15px 0%, 100% 0%, calc(100% - 15px) 100%, 0% 100%)
+    clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%);
+    width: 250px
     
     h3
         font-family: 'Iceland', sans-serif
-        font-size: 22px
+        font-size: 22px;
         letter-spacing: 2px
-        color: #A8C7FF
+        color: #000;
         margin: 0
+        text-align: right;
 
-// Контент карточек
-.cardContent
+.leftTopBlock
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+.leftBottomBlock
     display: flex
     flex-direction: column
+    min-width: 416px;
+    gap:15px;
+    align-items: flex-end;
+    border-radius: 4px;
+    background: #2D2D2D;
+    clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%, 0 15px);
+    padding: 6px;
+
+    
+
+
+.cardContent
+    width: 100%
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     gap: 15px
     list-style: none
-    padding: 0
-    margin: 0
+    padding: 6px;
+    // border-radius: 4px;
+    // background: #2D2D2D;
+    margin: 0;
+
+    &.cardContentTop
+        border-radius: 4px;
+        background: #2D2D2D;
+        padding: 10px;
 
 .infoRow
     display: flex
     align-items: center
+    justify-content: space-between
+    width: 75%
     gap: 15px
     list-style: none
     
@@ -179,7 +210,6 @@
     color: #EBEBEB
     margin: 0
 
-// Для Knowledge Core (правая карточка)
 .knowledgeItem
     display: flex
     align-items: center
@@ -194,7 +224,7 @@
 .knowledgeLine
     flex: 1
     height: 2px
-    background: linear-gradient(90deg, rgba(95, 141, 255, 0.6) 0%, rgba(95, 141, 255, 0) 100%)
+    background: linear-gradient( #DAE8FF 100%)
     position: relative
     
     &::after
