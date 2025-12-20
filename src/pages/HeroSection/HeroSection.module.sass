@@ -11,6 +11,8 @@
     justify-content: center
     position: relative
 
+.heroHeader
+    width: 500px;
 .heroTitle
     margin-left: 30px
     color: #FFF
@@ -18,6 +20,15 @@
     font-size: 48px
     letter-spacing: 3px
 
+.heroSubTitle
+    color: var(--neutral-80, #C7C7C7);
+    text-align: right;
+    font-family: Rajdhani;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.9px;
 .heroInfo
     width: 100%
     max-width: 1200px
@@ -29,7 +40,7 @@
 .leftInfoCard
     width: 430px
     height: 529px
-    align-items: flex-end;
+    align-items: flex-end
     // background: rgba(42, 42, 42, 0.8)
     // border: 2px solid rgba(95, 141, 255, 0.4)
     //clip-path: polygon(20px 0%, 100% 0%, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0% 100%, 0% 20px)
@@ -38,7 +49,7 @@
     display: flex
     flex-direction: column
     gap: 95px
-    
+
     &.slideLeft
         transform: translateX(-100px)
 
@@ -100,7 +111,7 @@
     align-items: center
     gap: 10px
     margin-bottom: 10px
-    
+
     h3
         font-family: 'Iceland', sans-serif
         font-size: 20px
@@ -112,6 +123,16 @@
 //     width: 20px
 //     height: 20px
 //     color: #A8C7FF
+
+.h2Title
+    text-align: right
+    color: #000
+    font-family: Iceland
+    font-size: 22px
+    font-style: normal
+    font-weight: 400
+    line-height: normal
+    text-transform: capitalize
 
 .directiveList
     display: flex
@@ -140,56 +161,53 @@
     &:hover
         background: linear-gradient(90deg, #85aaee 0%, #6f97e1 100%)
         transform: translateX(5px)
- 
+
 .cardHeader
-    background:  #A8C7FF
+    background: #A8C7FF
     padding: 12px 20px
-    clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%)
     width: 250px
-    
+
     h3
         font-family: 'Iceland', sans-serif
-        font-size: 22px;
+        font-size: 22px
         letter-spacing: 2px
-        color: #000;
+        color: #000
         margin: 0
-        text-align: right;
+        text-align: right
 
 .leftTopBlock
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+    display: flex
+    flex-direction: column
+    gap: 15px
 
 .leftBottomBlock
     display: flex
     flex-direction: column
-    min-width: 416px;
-    gap:15px;
-    align-items: flex-end;
-    border-radius: 4px;
-    background: #2D2D2D;
-    clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%, 0 15px);
-    padding: 6px;
-
-    
-
+    min-width: 416px
+    gap: 15px
+    align-items: flex-end
+    border-radius: 4px
+    background: #2D2D2D
+    clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%, 0 15px)
+    padding: 6px
 
 .cardContent
     width: 100%
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    display: flex
+    flex-direction: column
+    justify-content: space-between
     gap: 15px
     list-style: none
-    padding: 6px;
+    padding: 6px
     // border-radius: 4px;
     // background: #2D2D2D;
-    margin: 0;
+    margin: 0
 
     &.cardContentTop
-        border-radius: 4px;
-        background: #2D2D2D;
-        padding: 10px;
+        border-radius: 4px
+        background: #2D2D2D
+        padding: 10px
 
 .infoRow
     display: flex
@@ -198,7 +216,7 @@
     width: 75%
     gap: 15px
     list-style: none
-    
+
 .infoIcon
     width: 24px
     height: 24px
@@ -217,7 +235,7 @@
     padding: 10px 0
     border-bottom: 1px solid rgba(95, 141, 255, 0.2)
     list-style: none
-    
+
     &:last-child
         border-bottom: none
 
@@ -226,7 +244,7 @@
     height: 2px
     background: linear-gradient( #DAE8FF 100%)
     position: relative
-    
+
     &::after
         content: ''
         position: absolute
