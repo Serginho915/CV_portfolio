@@ -27,7 +27,7 @@ export const HeroSection = () => {
         </div>
 
         <div className={classes.nextButton}>
-            <button></button>
+          <button></button>
         </div>
       </header>
 
@@ -107,15 +107,18 @@ export const HeroSection = () => {
             </section>
 
             <section className={classes.directiveSection}>
+              <div className={classes.directiveLine}></div>
               <header className={classes.directiveHeader}>
                 <h2 className={classes.h2Title} style={{ color: 'white' }}>Personal Directive:</h2>
               </header>
 
               <ul className={classes.directiveList}>
+
                 {['Code-Crafted Accuracy', 'Cross-Functional Collaboration', 'Continuous Learning Agility', 'Solution-Oriented Mindset'].map((directive, index, array) => {
                   const widthPercent = 100 - (index * 15);
                   return (
                     <li key={index} className={classes.directiveItem}>
+                      <div className={classes.directiveNode}></div>
                       <div
                         className={classes.directiveBar}
                         style={{ width: `${widthPercent}%`, marginLeft: 'auto' }}
