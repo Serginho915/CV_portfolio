@@ -15,8 +15,20 @@ export const HeroSection = () => {
   return (
     <>
       <header className={classes.heroHeader}>
-        <h1 className={classes.heroTitle}>Front-End Developer</h1>
-        <h3 className={classes.heroSubTitle}>[ code operative ]</h3>
+
+        <div className={classes.heroInfoTitle}>
+          <h1 className={classes.heroTitle}>Front-End Developer</h1>
+          <h3 className={classes.heroSubTitle}>[ code operative ]</h3>
+        </div>
+
+        <div className={classes.cvButton}>
+          <span className={classes.cvSpan}>Resume file</span>
+          <button className={classes.cvButton}></button>
+        </div>
+
+        <div className={classes.nextButton}>
+            <button></button>
+        </div>
       </header>
 
       <main className={classes.heroContainer}>
@@ -41,6 +53,7 @@ export const HeroSection = () => {
                   <p className={classes.infoText}>Cardiff, UK</p>
                 </li>
               </ul>
+
             </section>
 
             <section className={classes.leftBottomBlock}>
@@ -53,7 +66,7 @@ export const HeroSection = () => {
               >
                 <h2 className={classes.h2Title}>Knowledge Core:</h2>
               </header>
-              <ul className={classes.cardContent}>
+              <ul className={[classes.cardContent, classes.cardContentBottom].join(' ')}>
                 <li className={classes.knowledgeItem}>
                   <div className={classes.knowledgeLine} aria-hidden="true"></div>
                   <p className={classes.knowledgeText}>Master's Degree</p>
