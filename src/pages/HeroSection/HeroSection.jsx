@@ -1,16 +1,26 @@
 import React, { useEffect, useState } from 'react'
+import { NextElementArrow } from '../../components/NextElementArrow/nextElementArrow.jsx'
 import sergePhoto from '../../assets/images/sergePhoto.jpg'
+import downloadIcon from '../../assets/images/downloadIcon.svg'
 import classes from './HeroSection.module.sass'
 
 export const HeroSection = () => {
-  const [isOpenedInfo, setIsOpenedInfo] = useState(false)
+  const [isOpenedInfo, setIsOpenedInfo] = useState(false);
+  const [marginDirectiveList, setMarginDirectiveList] = useState(0);
 
+  const directives = [
+    'Code-Crafted Accuracy',
+    'Cross-Functional Collaboration',
+    'Continuous Learning Agility',
+    'Solution-Oriented Mindset',
+  ];
   useEffect(() => {
     if (isOpenedInfo) return;
     const timeOut = setTimeout(() => {
       setIsOpenedInfo(true);
     }, 1000)
   }, [])
+
 
   return (
     <>
@@ -21,14 +31,15 @@ export const HeroSection = () => {
           <h3 className={classes.heroSubTitle}>[ code operative ]</h3>
         </div>
 
-        <div className={classes.cvButton}>
+        <div className={classes.cvButtonBlock}>
           <span className={classes.cvSpan}>Resume file</span>
           <button className={classes.cvButton}></button>
         </div>
 
         <div className={classes.nextButton}>
-          <button></button>
-        </div>
+          <NextElementArrow />
+          <p className={classes.nextButtonText}>Explore the Universe </p>
+        </div> 
       </header>
 
       <main className={classes.heroContainer}>
@@ -113,15 +124,15 @@ export const HeroSection = () => {
               </header>
 
               <ul className={classes.directiveList}>
+                {directives.map((directive, index) => {
+                  const marginLeft = index * 26;
 
-                {['Code-Crafted Accuracy', 'Cross-Functional Collaboration', 'Continuous Learning Agility', 'Solution-Oriented Mindset'].map((directive, index, array) => {
-                  const widthPercent = 100 - (index * 15);
                   return (
                     <li key={index} className={classes.directiveItem}>
-                      <div className={classes.directiveNode}></div>
+                      <div className={classes.directiveNode} />
                       <div
                         className={classes.directiveBar}
-                        style={{ width: `${widthPercent}%`, marginLeft: 'auto' }}
+                        style={{ marginLeft: `${marginLeft}px` }}
                       >
                         {directive}
                       </div>

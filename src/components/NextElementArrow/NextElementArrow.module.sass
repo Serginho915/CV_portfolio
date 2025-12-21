@@ -1,0 +1,29 @@
+@keyframes moveright 
+  0%
+    transform: translatex(0)
+  25%
+    transform: translateY(3px)
+  50%
+    transform: translateX(1px)
+
+
+.arrow
+  position: relative
+  width: 95px
+  height: 2px
+  background: white
+  margin-right: 26px
+  margin-top: 10px
+  &::after
+    content: ''
+    position: absolute
+    right: -20px
+    top: -9px
+    width: 0
+    height: 0
+    border-top: 10px solid transparent
+    border-bottom: 10px solid transparent
+    border-left: 20px solid white
+
+    &:hover
+      animation: moveright 0.9s ease-in-out infinite;
