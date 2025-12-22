@@ -1,10 +1,10 @@
 @keyframes moveright 
   0%
-    transform: translatex(0)
+    transform: translateX(0)
   25%
-    transform: translateY(3px)
+    transform: translateX(10px)
   50%
-    transform: translateX(1px)
+    transform: translateX(5px)
 
 
 .arrow
@@ -14,6 +14,9 @@
   background: white
   margin-right: 26px
   margin-top: 10px
+  cursor: pointer;
+  &:hover
+      animation: moveright 0.9s ease-in-out infinite;
   &::after
     content: ''
     position: absolute
@@ -24,6 +27,4 @@
     border-top: 10px solid transparent
     border-bottom: 10px solid transparent
     border-left: 20px solid white
-
-    &:hover
-      animation: moveright 0.9s ease-in-out infinite;
+    

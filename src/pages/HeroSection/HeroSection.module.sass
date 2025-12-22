@@ -1,4 +1,10 @@
-
+@keyframes moveright 
+  0%
+    transform: translatex(0)
+  25%
+    transform: translateY(3px)
+  50%
+    transform: translateX(1px)
     
 .heroContainer
     padding: 0 26px
@@ -86,10 +92,17 @@
     background: url('../../assets/images/downloadIcon.svg') no-repeat center / 24px
 
   &:hover::before
-    animation: shakeDown 
+    animation: shakeDown 0.4s ease-in-out infinite;
 
 .cvSpan:hover + .cvButton::before
     animation: shakeDown 0.4s ease-in-out infinite
+
+.nextButton
+    display: flex
+    flex-direction: column
+    gap: 2px;
+    align-items: flex-end;
+    justify-content: space-between;
 
 .nextButtonText
     color: var(--white, #FFF);
@@ -98,6 +111,8 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    margin: 0;
+    animation: moveright 0.9s ease-in-out infinite;
 // .cvDownloadImg
 //     display: block;
 //     width: 49px;
@@ -244,17 +259,17 @@
     &:nth-child(2) .directiveNode
         left: 26px;
         top: 25px;
-        width: 82.3%;
+        width: 88%;
     
     &:nth-child(3) .directiveNode
         left: 49px;
         top: 25px;
-        width: 76.8%;
+        width: 89%;
     
     &:nth-child(4) .directiveNode
         left: 72px;
         top: 25px;
-        width: 71.3%;
+        width: 90%;
 
 .directiveNode
     position: absolute
@@ -268,7 +283,7 @@
 
 .directiveBar
     background: linear-gradient(90deg, #A8C7FF 0%, #A8C7FF 100%)
-
+    width: 100%;
     clip-path: polygon(0% 0%, calc(100% - 10px) 0%, 100% 100%, 10px 100%)
     font-family: 'Rajdhani', sans-serif
     font-size: 16px

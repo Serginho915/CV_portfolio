@@ -6,7 +6,7 @@ import classes from './HeroSection.module.sass'
 
 export const HeroSection = () => {
   const [isOpenedInfo, setIsOpenedInfo] = useState(false);
-  const [marginDirectiveList, setMarginDirectiveList] = useState(0);
+
 
   const directives = [
     'Code-Crafted Accuracy',
