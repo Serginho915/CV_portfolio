@@ -1,0 +1,120 @@
+.leftInfoCard
+    width: 430px
+    height: 529px
+    align-items: flex-end
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    display: flex
+    flex-direction: column
+    gap: 95px
+
+    &.slideLeft
+        transform: translateX(-100px)
+
+.cardHeader
+    background: #A8C7FF
+    padding: 5px 20px
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 15px 100%)
+    width: 250px
+
+    h3
+        font-family: 'Iceland', sans-serif
+        font-size: 22px
+        letter-spacing: 2px
+        color: #000
+        margin: 0
+        text-align: right
+
+.leftTopBlock
+    display: flex
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px
+
+.leftBottomBlock
+    position: relative;
+    display: flex
+    flex-direction: column
+    min-width: 416px
+    gap: 15px
+    align-items: flex-end
+    border: 1px solid #fff
+    border-radius: 4px
+    background: #2D2D2D
+    clip-path: polygon(15px 0, 100% 0, 100% 100%, 0 100%, 0 15px)
+    padding: 6px 6px 6px 0px;
+
+.cardContent
+    width: 90%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    gap: 15px
+    list-style: none
+    padding: 6px
+    margin: 0
+
+    &.cardContentTop
+        border-radius: 4px
+        background: #2D2D2D
+        padding: 10px 20px 10px 10px;
+
+    &.cardContentBottom
+        width: 100%
+        padding: 6px 20px 6px 0px;
+
+.infoRow
+    display: flex
+    align-items: center
+    justify-content: space-between;
+    width: 100%
+    gap: 15px
+    list-style: none
+    position: relative
+
+.infoIcon
+    position: absolute
+    left: 0
+    width: 24px
+    height: 24px
+    color: #A8C7FF
+
+.infoText
+    font-family: 'Rajdhani', sans-serif
+    font-size: 18px
+    color: #EBEBEB
+    margin: 0
+
+.knowledgeItem
+    display: flex
+    align-items: center
+    gap: 15px
+    padding: 10px 0
+    border-bottom: 1px solid rgba(95, 141, 255, 0.2)
+    list-style: none
+
+    &:last-child
+        border-bottom: none
+
+.knowledgeLine
+    flex: 1
+    height: 2px
+    background: linear-gradient( #DAE8FF 100%)
+    position: relative
+
+.knowledgeText
+    font-family: 'Rajdhani', sans-serif
+    font-size: 18px
+    color: #EBEBEB
+    margin: 0
+    text-align: right
+
+.h2Title
+    text-align: right
+    color: #000
+    font-family: Iceland
+    font-size: 22px
+    font-style: normal
+    font-weight: 400
+    line-height: normal
+    text-transform: capitalize
+

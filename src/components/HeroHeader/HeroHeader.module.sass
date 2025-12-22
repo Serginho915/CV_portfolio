@@ -1,0 +1,101 @@
+.heroHeader
+    padding: 0 26px;
+    display: flex;
+    justify-content: space-between;
+
+.heroTitle
+    display: inline-block;
+    color: #FFF
+    font-family: 'Iceland', sans-serif
+    font-size: 48px
+    letter-spacing: 3px
+
+.heroSubTitle
+    color: var(--neutral-80, #C7C7C7);
+    text-align: right;
+    font-family: Rajdhani,sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.9px;
+
+.cvButtonBlock
+    display: flex
+    align-items: center;
+    gap: 6px;
+    margin-left: -250px;
+
+.cvSpan
+    border-radius: 8px;
+    background: var(--neutral-70, #999);
+    font-family: Iceland, sans-serif;
+    color: #000
+    padding: 12px;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+
+@keyframes shakeDown
+  0%
+    transform: translateY(0)
+  25%
+    transform: translateY(3px)
+  50%
+    transform: translateY(-2px)
+    transform: translateX(1px)
+    opacity: 0.8
+  100%
+    transform: translateY(0)
+    opacity: 0.6
+
+.cvButton
+  width: 50px
+  height: 50px
+  padding: 0
+  border-radius: 6px
+  border: none
+  cursor: pointer
+  background: var(--neutral-70, #999)
+  position: relative
+  overflow: hidden
+
+  &::before
+    content: ''
+    position: absolute
+    inset: 0
+    background: url('../../assets/images/downloadIcon.svg') no-repeat center / 24px
+
+  &:hover::before
+    animation: shakeDown 0.4s ease-in-out infinite;
+
+.cvSpan:hover + .cvButton::before
+    animation: shakeDown 0.4s ease-in-out infinite
+
+.nextButton
+    display: flex
+    flex-direction: column
+    gap: 2px;
+    align-items: flex-end;
+    justify-content: space-between;
+
+.nextButtonText
+    color: var(--white, #FFF);
+    font-family: Rajdhani;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+    animation: moveright 0.9s ease-in-out infinite;
+
+@keyframes moveright 
+  0%
+    transform: translatex(0)
+  25%
+    transform: translateY(3px)
+  50%
+    transform: translateX(1px)
+
