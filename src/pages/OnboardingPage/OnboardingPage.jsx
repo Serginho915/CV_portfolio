@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AnimatedDot } from '../../components/backrgound_Dots/AnimatedDot';
 import { OnboardingText } from '../../components/OnboardingText/OnboardingText';
 import { HorizontBG } from '../../components/HorizontalBG/HorizontBG';
@@ -17,7 +18,8 @@ const DOTS_CONFIG = [
   { top: 630, left: 896, size: 8, color: '#bbadadff', blur: 3, animation: 'neutralDot' }
 ];
 
-export const OnboardingPage = ({ onFinish }) => {
+export const OnboardingPage = () => {
+  const navigate = useNavigate();
   const [finished, setFinished] = useState(false);
   const [dotsFinishedCount, setDotsFinishedCount] = useState(0);
   const [hydrTextFinished, setHydrTextFinished] = useState(false);
@@ -49,7 +51,7 @@ export const OnboardingPage = ({ onFinish }) => {
 
   // Когда "Complete" допечатан и прошло 2 секунды
   const handleCompleteFinish = () => {
-    if (onFinish) onFinish(true);
+    navigate('/hero');
   };
 
   return (
@@ -73,7 +75,7 @@ export const OnboardingPage = ({ onFinish }) => {
       </div>
 
       {dotsFinished.current && (
-        <HydrationSuggest 
+        <HydrationSuggest
           onFinish={handleHydrationSuggestEnd}
           showComplete={cardSelected}
           onCompleteFinish={handleCompleteFinish}

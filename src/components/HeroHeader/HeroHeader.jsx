@@ -10,16 +10,17 @@ export const HeroHeader = () => {
         <h3 className={classes.heroSubTitle}>[ code operative ]</h3>
       </div>
 
-      <div className={classes.cvButtonBlock}>
+      <a href="/SerhiiKozhyn_Resume.pdf" download className={classes.cvButtonBlock}>
         <span className={classes.cvSpan}>Resume file</span>
         <button className={classes.cvButton}></button>
-      </div>
+      </a>
 
       <div className={classes.nextButton}>
         <NextElementArrow />
         <p className={classes.nextButtonText}>Explore the Universe </p>
-      </div> 
+      </div>
     </header>
   )
 }
+
 
