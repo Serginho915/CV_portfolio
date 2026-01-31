@@ -1,5 +1,5 @@
 import React from 'react'
-import sergePhoto from '../../assets/images/sergePhoto.jpg'
+import sergePhoto from '../../assets/images/SergePhoto.jpg'
 import classes from './HeroImage.module.sass'
 
 export const HeroImage = ({ isOpenedInfo }) => {
