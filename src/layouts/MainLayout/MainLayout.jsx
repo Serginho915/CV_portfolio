@@ -1,6 +1,6 @@
 import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { FooterComponent } from '../../components/Footer/footerComponent';
+import { FooterComponent } from '../../components/Footer/FooterComponent';
 import classes from './MainLayout.module.sass';
 
 const MainLayout = () => {

@@ -35,7 +35,6 @@ export const TECH_PROTOCOLS = [
             { name: "CSS3", icon: ICONS.CSS3 },
             { name: "TWIND", icon: ICONS.TAILWIND },
             { name: "LESS", icon: ICONS.LESS },
-            { name: "SASS", icon: ICONS.SASS }
         ]
     },
     {

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AnimatedDot } from '../../components/backrgound_Dots/AnimatedDot';
+import { AnimatedDot } from '../../components/background_Dots/AnimatedDot';
 import { OnboardingText } from '../../components/OnboardingText/OnboardingText';
 import { HorizontBG } from '../../components/HorizontalBG/HorizontBG';
 import { GreetingRobot } from '../../components/greetingRobot/GreetingRobot';

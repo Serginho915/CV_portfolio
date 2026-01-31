@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { useNavigate } from 'react-router-dom';
-import { BackgroundDots } from '../../components/backrgound_Dots/BackgroundDots';
+import { BackgroundDots } from '../../components/background_Dots/BackgroundDots';
 import classes from './ContactPage.module.sass';
 
 export const ContactPage = () => {
