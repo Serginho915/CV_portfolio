@@ -44,12 +44,11 @@ export const OnboardingPage = () => {
     setHydrTextFinished(true);
   };
 
-  // Когда выбрана карточка
+
   const handleCardSelect = () => {
     setCardSelected(true);
   };
 
-  // Когда "Complete" допечатан и прошло 2 секунды
   const handleCompleteFinish = () => {
     navigate('/hero');
   };

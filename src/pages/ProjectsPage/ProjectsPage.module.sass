@@ -1,0 +1,208 @@
+.projectsPage
+    position: relative
+    width: 100%
+    height: 100vh
+    background: #0a0a0a
+    overflow: hidden
+    display: grid
+    // Col 1: PROJECTS (150px) | Col 2: flexible | Col 3: 200px Center Axis | Col 4: flexible 
+    grid-template-columns: 150px calc(50% - 250px) 200px 1fr
+    // Rows: Header (70px) | Content Area 1 | Content Area 2 | Bottom HUD (~140px)
+    grid-template-rows: 70px 48vh 1fr 140px
+    color: #EBEBEB
+    font-family: 'Rajdhani', sans-serif
+
+.thumbnailBackground
+    position: fixed
+    inset: 0
+    background-image: url('../../assets/images/thumbnail.jpg')
+    background-size: cover
+    background-position: center
+    filter: brightness(0.6) contrast(1.1)
+    z-index: 0
+
+.noiseOverlay
+    position: fixed
+    inset: 0
+    z-index: 150
+    opacity: 0.15
+    pointer-events: none
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")
+
+.gridOverlay
+    position: fixed
+    inset: 0
+    z-index: 200
+    pointer-events: none
+    display: grid
+    grid-template-columns: 150px calc(50% - 250px) 200px 1fr
+    grid-template-rows: 70px 48vh 1fr 140px
+
+// Visual Grid Lines using borders of dummy cells
+.gridCell
+    position: relative
+    border-right: 1px solid rgba(168, 199, 255, 0.15)
+    border-bottom: 1px solid rgba(168, 199, 255, 0.15)
+    
+    &:nth-child(4n) 
+        border-right: none
+
+    &.noBottom
+        border-bottom: none
+
+.headerSection
+    grid-column: 1 / 2
+    grid-row: 1 / 2
+    z-index: 10
+    display: flex
+    align-items: center
+    justify-content: center
+    background: #111
+    border-right: 1px solid rgba(168, 199, 255, 0.15)
+    border-bottom: 1px solid rgba(168, 199, 255, 0.15)
+
+.projectsHeader
+    h1
+        font-size: 20px
+        text-transform: uppercase
+        letter-spacing: 5px
+        font-weight: 500
+        margin: 0
+        color: #A8C7FF
+
+.mainContent
+    grid-column: 3 / 4 // Centered under 2024
+    grid-row: 3 / 4 
+    display: flex
+    align-items: center
+    justify-content: center
+    position: relative
+    z-index: 10
+    padding: 0
+
+.demoAction
+    display: flex
+    flex-direction: column
+    align-items: center
+    gap: 30px
+    cursor: pointer
+    transition: transform 0.3s ease
+    pointer-events: auto
+    
+    &:hover
+        transform: scale(1.05)
+        .pixelArrow
+            transform: translate(20px, -20px)
+
+.pixelArrow
+    width: 200px
+    height: 200px
+    object-fit: contain
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+
+.runDemoText
+    font-size: 16px
+    text-transform: uppercase
+    letter-spacing: 8px
+    color: #CCC
+    font-weight: 400
+    transition: color 0.3s ease, letter-spacing 0.3s ease
+
+.projectDescription
+    grid-column: 2 / 4
+    grid-row: 2 / 3
+    padding: 20px 40px
+    z-index: 10
+    display: flex
+    flex-direction: column
+    gap: 30px
+
+.buildReportLabel
+    font-size: 16px
+    color: #A8C7FF
+    letter-spacing: 2px
+    text-transform: uppercase
+
+.descriptionText
+    font-size: 14px
+    line-height: 1.8
+    color: #332a2a
+    max-width: 500px
+
+.techList
+    grid-column: 2 / 3 // Left side of center
+    grid-row: 3 / 4
+    padding: 0 40px
+    z-index: 10
+    display: flex
+    flex-direction: column
+    gap: 15px
+    justify-content: center
+
+.techItem
+    display: flex
+    align-items: center
+    gap: 15px
+    font-size: 14px
+    color: #CCC
+    text-transform: uppercase
+    letter-spacing: 1px
+
+    &::before
+        content: ''
+        width: 6px
+        height: 6px
+        background: #A8C7FF
+        box-shadow: 0 0 5px #A8C7FF
+
+.sideImage
+    display: none
+
+.mainProjectImage
+    grid-column: 4 / 5 // Moved to the far right
+    grid-row: 2 / 3 // Top area
+    z-index: 10
+    overflow: hidden
+    display: flex
+    img
+        width: 100%
+        height: 100%
+        object-fit: cover // Cover looks better for full-cell images
+
+.yearDisplay
+    grid-column: 3 / 4
+    grid-row: 1 / 2
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size: 24px
+    font-weight: 600
+    letter-spacing: 8px
+    color: rgba(168, 199, 255, 0.4)
+    z-index: 10
+
+.navigation
+    position: absolute
+    bottom: 50px
+    right: 40px
+    display: flex
+    align-items: center
+    gap: 40px
+    z-index: 15
+    pointer-events: auto
+
+.nextButton, .backButton
+    display: flex
+    align-items: center
+    gap: 10px
+    cursor: pointer
+    transition: transform 0.3s ease
+    &:hover
+        transform: scale(1.1)
+
+.nextText
+    text-transform: uppercase
+    letter-spacing: 2px
+    font-size: 14px
+    color: #EBEBEB
+    font-weight: 400

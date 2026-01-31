@@ -1,8 +1,11 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { NextElementArrow } from '../NextElementArrow/NextElementArrow.jsx'
 import classes from './HeroHeader.module.sass'
 
 export const HeroHeader = () => {
+  const navigate = useNavigate();
+
   return (
     <header className={classes.heroHeader}>
       <div className={classes.heroInfoTitle}>
@@ -15,7 +18,7 @@ export const HeroHeader = () => {
         <button className={classes.cvButton}></button>
       </a>
 
-      <div className={classes.nextButton}>
+      <div className={classes.nextButton} onClick={() => navigate('/skills')}>
         <NextElementArrow />
         <p className={classes.nextButtonText}>Explore the Universe </p>
       </div>
