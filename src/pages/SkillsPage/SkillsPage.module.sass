@@ -4,7 +4,7 @@
     width: 100%
     min-height: calc(100vh - 120px)
     padding: 0 40px
-    color: #EBEBEB
+    color: var(--text-primary)
     position: relative
     font-family: 'Rajdhani', sans-serif
 
@@ -22,19 +22,19 @@
     transform: translateY(-50%)
     width: 1px
     height: 400px
-    background: #3F4875
+    background: var(--accent-shadow-inner)
 
 .headerLine, .bottomLine
     width: 340px
     height: 1px
-    background: #3F4875
+    background: var(--accent-shadow-inner)
     position: relative
 
 .protocolsTitle
     font-size: 16px
     text-transform: uppercase
     letter-spacing: 4px
-    color: #EBEBEB
+    color: var(--text-primary)
     font-weight: 500
     position: absolute
     left: 100px
@@ -57,7 +57,8 @@
     justify-content: flex-end
     align-items: center
     gap: 20px
-    color: #999
+    color: var(--text-primary)
+    opacity: 0.6
     font-size: 16px
     text-transform: uppercase
     letter-spacing: 1.5px
@@ -67,7 +68,7 @@
         opacity: 0.8
     
     .categoryNumber
-        color: #A8C7FF
+        color: var(--accent-color)
         font-weight: 600
         font-size: 16px
 
@@ -95,13 +96,13 @@
 .bottomLine
     width: 650px
     height: 1px
-    background: #3F4875
+    background: var(--accent-shadow-inner)
 
 .humanTitle
     font-size: 16px
     text-transform: uppercase
     letter-spacing: 4px
-    color: #EBEBEB
+    color: var(--text-primary)
     font-weight: 500
     white-space: nowrap
     margin: 0
@@ -113,8 +114,8 @@
 .skillBar
     width: 30px
     height: 120px
-    background: #1a1a1a
-    border: 1px solid rgba(255, 255, 255, 0.4)
+    background: var(--bg-primary)
+    border: 1px solid var(--accent-shadow)
     position: relative
     overflow: hidden
 
@@ -128,9 +129,9 @@
         opacity: 0.6
     
     &.active
-        border-color: #A8C7FF
-        box-shadow: 0 0 15px rgba(168, 199, 255, 0.4)
-        background: rgba(168, 199, 255, 0.1)
+        border-color: var(--accent-color)
+        box-shadow: 0 0 15px var(--accent-shadow)
+        background: var(--accent-shadow-inner)
 
     .barLabel
         position: absolute
@@ -163,7 +164,7 @@
     text-transform: uppercase
     letter-spacing: 2px
     font-size: 14px
-    color: #EBEBEB
+    color: var(--text-primary)
     font-weight: 400
 .snakeBlock
     position: absolute
@@ -202,8 +203,8 @@
     position: absolute
     width: 6px 
     height: 6px
-    background: #A8C7FF
-    box-shadow: 0 0 4px #A8C7FF
+    background: #DAE8FF
+    box-shadow: 0 0 4px #DAE8FF
     z-index: 5
     transform: translate(-50%, -50%)
 
@@ -230,7 +231,7 @@
     display: flex
     justify-content: center
     align-items: center
-    background: #000
+    background: var(--body-bg)
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5)
     position: relative
 
@@ -247,7 +248,7 @@
     left: 0
     width: 100%
     height: 50px
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 100%)
+    background: linear-gradient(to top, var(--body-bg) 0%, transparent 100%)
     border-top: 1px solid rgba(168, 199, 255, 0.2)
     display: flex
     align-items: center
@@ -267,6 +268,6 @@
     font-weight: 700
     text-transform: uppercase
     letter-spacing: 8px
-    color: #A8C7FF
-    text-shadow: 0 0 10px rgba(168, 199, 255, 0.5)
+    color: var(--accent-color)
+    text-shadow: 0 0 10px var(--accent-shadow)
     font-family: 'Rajdhani', sans-serif

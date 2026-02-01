@@ -28,14 +28,14 @@
     font-family: 'Iceland', sans-serif
     font-size: 18px
     font-weight: 400
-    color: #EBEBEB
+    color: var(--text-primary)
     min-width: 150px
 
 .serviceValue
     font-family: 'Iceland', sans-serif
     font-size: 18px
     font-weight: 400
-    color: #A8C7FF
+    color: var(--accent-color)
     text-transform: uppercase
     letter-spacing: 1px
 
@@ -56,12 +56,12 @@
         font-family: 'Iceland', sans-serif
         font-size: 20px
         font-weight: 400
-        color: #EBEBEB
+        color: var(--text-primary)
         margin: 0
 
 .h2Title
     text-align: right
-    color: #000
+    color: var(--body-bg)
     font-family: Iceland
     font-size: 22px
     font-style: normal
@@ -84,7 +84,7 @@
     top: 0
     height: 109%
     width: 2px
-    background: #A8C7FF
+    background: var(--accent-color)
     transform-origin: top left
     transform: rotate(-25deg) translateX(-10px)
     z-index: 0
@@ -118,18 +118,18 @@
     position: absolute
     top: 50%
     height: 2px
-    background: #A8C7FF
+    background: var(--accent-color)
     z-index: 1
     transform: translateY(-50%)
 
 .directiveBar
-    background: linear-gradient(90deg, #A8C7FF 0%, #A8C7FF 100%)
+    background: linear-gradient(90deg, var(--accent-color) 0%, var(--accent-color) 100%)
     width: 100%;
     clip-path: polygon(0% 0%, calc(100% - 10px) 0%, 100% 100%, 10px 100%)
     font-family: 'Rajdhani', sans-serif
     font-size: 16px
     font-weight: 400
-    color: #000
+    color: var(--body-bg)
     text-align: center
     transition: all 0.3s ease
 

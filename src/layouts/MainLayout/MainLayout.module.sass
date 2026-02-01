@@ -3,13 +3,17 @@
     flex-direction: column
     min-height: 100vh
     position: relative
-    background: #000 
+    background: var(--body-bg)
 
 .heroLayout
     background-image: url('../../assets/images/HeroBackground.svg')
     background-size: cover
     background-position: center
     background-repeat: no-repeat
+
+    :global(.light-theme) &
+        background-image: url('../../assets/images/lightHeroBackground.svg')
+        background-color: var(--body-bg)
 
 .content
     flex: 1

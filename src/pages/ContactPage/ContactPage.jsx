@@ -65,11 +65,9 @@ export const ContactPage = () => {
 
             {/* Sidebar Socials (Left) */}
             <div className={classes.sideSocials}>
-                <a href="https://www.linkedin.com/in/serhii-kozhyn/" target="_blank" className={classes.socialBox}>
-                    <span className={classes.socialIcon}>in</span>
+                <a href="https://www.linkedin.com/in/serhii-kozhyn/" target="_blank" className={`${classes.socialBox} ${classes['icon-linkedin']}`}>
                 </a>
-                <a href="https://github.com/Serginho915" target="_blank" className={classes.socialBox}>
-                    <span className={classes.socialIcon}>git</span>
+                <a href="https://github.com/Serginho915" target="_blank" className={`${classes.socialBox} ${classes['icon-github']}`}>
                 </a>
                 <a href="mailto:sergunho915@gmail.com" className={classes.socialBox}>
                     <span className={classes.socialIcon}>M</span>

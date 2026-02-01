@@ -27,7 +27,7 @@ export const ServiceRecordCard = ({ isOpenedInfo }) => {
       <section className={classes.directiveSection}>
         <div className={classes.directiveLine}></div>
         <header className={classes.directiveHeader}>
-          <h2 className={classes.h2Title} style={{ color: 'white' }}>Personal Directive:</h2>
+          <h2 className={classes.h2Title}>Personal Directive:</h2>
         </header>
 
         <ul className={classes.directiveList}>

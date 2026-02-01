@@ -1,15 +1,41 @@
 @import './animations'
 
 
+:root
+  --bg-primary: #1A1A1A
+  --bg-secondary: #2D2D2D
+  --accent-color: #A8C7FF
+  --accent-shadow: rgba(168, 199, 255, 0.5)
+  --accent-shadow-inner: rgba(168, 199, 255, 0.2)
+  --text-primary: #EBEBEB
+  --body-bg: #000
+  --form-bg: #2D2D2D
+  --form-text: #EBEBEB
+  --form-border: rgba(168, 199, 255, 0.3)
+
+.light-theme
+  --bg-primary: #DAE8FF
+  --bg-secondary: #A8C7FF
+  --accent-color: #1A1A1A
+  --accent-shadow: rgba(26, 26, 26, 0.3)
+  --accent-shadow-inner: rgba(26, 26, 26, 0.1)
+  --text-primary: #1A1A1A
+  --body-bg: #DAE8FF
+  --form-bg: #82ABFF
+  --form-text: #1A1A1A
+  --form-border: rgba(26, 26, 26, 0.2)
+
 *
   box-sizing: border-box
+
 body
   font-family: 'Rajdhani', sans-serif
   margin: 0
-  background-color: #000
-  color: #111
+  background-color: var(--body-bg)
+  color: var(--text-primary)
   width: 100vw
   min-height: 100vh
+  transition: background-color 0.5s ease, color 0.5s ease
 
 
 h1, h2, h3
