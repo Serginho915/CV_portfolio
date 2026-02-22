@@ -166,7 +166,7 @@ export const ContactPage = () => {
                 </motion.div>
             </main>
 
-            {/* Right Interaction (Let's Collaborate) - Also a submit button */}
+            {/* Right Interaction */}
             <button type="submit" form="contactForm" className={classes.rightCta} disabled={isSubmitting}>
                 <div className={classes.ctaGroup}>
                     <div className={classes.arrowLine}></div>
@@ -181,7 +181,7 @@ export const ContactPage = () => {
                 <button onClick={() => navigate('/projects')}>Projects</button>
             </div>
 
-            {/* Bottom Center (Start Over) */}
+            {/* Bottom Center  */}
             <div className={classes.startOver} onClick={() => navigate('/')}>
                 <span>Start Over</span>
             </div>
