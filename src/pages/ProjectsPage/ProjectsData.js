@@ -1,6 +1,7 @@
 import hlegalImg from '../../assets/images/hlegal.png';
 import shoppingCartImg from '../../assets/images/ShoppingCart.png';
 import IET from'../../assets/images/IET.png'
+import friendKitchen from '../../assets/images/friendKitchen.png'
 
 export const projectsData = [
     {
@@ -17,7 +18,7 @@ export const projectsData = [
         title: "Friend Kitchen",
         description: "A full-stack automated menu management system, reducing manual design time for kitchen operations. Used React 19  and Typescript.",
         techStack: ["NodeJS","Typescript","React", "HTML&CSS","SQLite"],
-        image: hlegalImg,
+        image: friendKitchen,
         demoUrl: "https://github.com/Serginho915/FriendKitchen",
         buildReportLabel: "< BUILD REPORT >"
     },

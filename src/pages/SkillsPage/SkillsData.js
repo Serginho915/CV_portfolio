@@ -20,6 +20,10 @@ export const ICONS = {
     FIGMA: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
     GIT: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
     ORACLE: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='2' fill='%23f80000'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23ffffff' font-family='Arial, sans-serif' font-size='8' font-weight='bold'%3ESQL%3C/text%3E%3C/svg%3E",
+    NEXTJS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
+    SQLITE: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
+    VITE: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vite/vite-original.svg",
+    TYPESCRIPT: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
 };
 
 export const ANIM_DURATION = 6;
@@ -31,7 +35,6 @@ export const TECH_PROTOCOLS = [
         skills: [
             { name: "SASS", icon: ICONS.SASS },
             { name: "HTML5", icon: ICONS.HTML5 },
-            { name: "REACT", icon: ICONS.REACT },
             { name: "CSS3", icon: ICONS.CSS3 },
             { name: "TWIND", icon: ICONS.TAILWIND },
             { name: "LESS", icon: ICONS.LESS },
@@ -41,11 +44,14 @@ export const TECH_PROTOCOLS = [
         id: "02",
         name: "JavaScript Ecosystem",
         skills: [
-            { name: "JS", icon: ICONS.JS },
+            { name: "NextJS", icon: ICONS.NEXTJS },
+            { name: "TypeScript", icon: ICONS.TYPESCRIPT },
             { name: "ReactJS", icon: ICONS.REACT },
+            { name: "JS", icon: ICONS.JS },
             { name: "BOOTSTRAP", icon: ICONS.BOOTSTRAP },
             { name: "SASS", icon: ICONS.SASS },
-            { name: "WPACK", icon: ICONS.WEBPACK }
+            { name: "WPACK", icon: ICONS.WEBPACK },
+            { name: "Vite", icon: ICONS.VITE },
         ]
     },
     {
@@ -54,7 +60,8 @@ export const TECH_PROTOCOLS = [
         skills: [
             { name: "POSTGRE", icon: ICONS.POSTGRES },
             { name: "MDB", icon: ICONS.MONGODB },
-            { name: "Oracle SQL", icon: ICONS.ORACLE }
+            { name: "Oracle SQL", icon: ICONS.ORACLE },
+            { name: "SQLite", icon: ICONS.SQLITE }
         ]
     },
     {
